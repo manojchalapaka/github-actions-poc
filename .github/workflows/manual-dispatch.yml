@@ -1,0 +1,19 @@
+﻿name: POC - Manual Dispatch on Dev Branch
+
+on:
+  workflow_dispatch:
+    inputs:
+      target_env:
+        description: 'Select Environment'
+        required: true
+        default: 'dev'
+        type: choice
+        options:
+          - dev
+          - staging
+
+jobs:
+  test-job:
+    runs-on: self-hosted
+    steps:
+      - run: echo "Running from dev branch!"
